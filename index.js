@@ -22,13 +22,17 @@ export function multiplicationAndDivision(a= 1,b= 1){
 }
  //4. Write a JavaScript program to find the longest string from a given array.
 export function findString(stringArray){
-    const string = stringArray.reduce((prev, acc) => {
-        if(acc.length > prev.length){
-            return acc
-        }
-        return prev
-    })
-    return string
+    if(stringArray.length === 0) return "Empty array"
+    else if (stringArray.length === 1) return stringArray[0]
+    else {
+        const string = stringArray.reduce((prev, acc) => {
+            if(acc.length > prev.length){
+                return acc
+            }
+            return prev
+        })
+        return string
+    }
 }
  //9. Write a JavaScript program to filter out the specified values from a specified array. Return the original array without the filtered values
 export function filterArray(tabValues, arrayFilterValues){

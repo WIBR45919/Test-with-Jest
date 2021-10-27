@@ -68,6 +68,14 @@ describe('program to find the longest string from a given array',()=>{
     test('Render the longest string',()=> {
         expect(findString(['I am here', 'Why you are not here', 'Go ahead', 'Shutting down'])).toMatch('Why you are not here')
     })
+
+    test('Render if array has one string',()=> {
+        expect(findString(['I am here'])).toMatch('I am here')
+    })
+    test('Render if array is empty',()=> {
+        expect(findString([])).toMatch('Empty array')
+    })
+
 })
 describe('program to filter out the specified values from a specified array. Return the original array without the filtered values', ()=>{
     test('value return', ()=>{
