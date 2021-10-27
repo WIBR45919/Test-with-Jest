@@ -1,4 +1,7 @@
-import { divisionNumber, matchNumber, getDayBeforeChristMast, multiplicationAndDivision, findString,extractAtIndex, filterArray } from "./index.js";
+import {
+    divisionNumber, matchNumber, getDayBeforeChristMast, multiplicationAndDivision, findString, extractAtIndex,
+    deleteProperty,filterArray
+} from "./index.js";
 
 
 describe('division operation', () => {
@@ -32,11 +35,10 @@ describe('division operation', () => {
   })
 
 })
-1.
 describe('check if user input equal to random number', () => {
   test("check if guess number and random number are equals", () => {
     Math.random = jest.fn(() => 0.3);
-    expect(matchNumber(1)).toBe("Good Work");
+    expect(matchNumber(3)).toBe("Good Work");
   });
 })
 describe('calculate days left until next Christmas', () => {
@@ -62,22 +64,25 @@ describe('calculate multiplication and division of two numbers (input from user)
     expect(multiplicationAndDivision(5, 0)).toEqual(0)
   })
 })
-
 describe('program to find the longest string from a given array',()=>{
     test('Render the longest string',()=> {
         expect(findString(['I am here', 'Why you are not here', 'Go ahead', 'Shutting down'])).toMatch('Why you are not here')
     })
 })
-
 describe('program to filter out the specified values from a specified array. Return the original array without the filtered values', ()=>{
     test('value return', ()=>{
         expect(filterArray(['I am here', 'Why you are not here', 'Go ahead', 'Shutting down'], ['Go ahead', 'Shutting down']))
             .toEqual(['I am here', 'Why you are not here'])
     })
 })
-
 describe('program to extract out the values at the specified indexes from a specified array.', ()=>{
     test('Index exist in an array',()=>{
         expect(extractAtIndex(1,4,5)).toEqual([15, 17,'Tonton', 'Eat fast', 'as well as'])
+    })
+})
+describe('program to delete the rollno property from the following object.Also print the object before or after deleting the property.', ()=>{
+    test('Print is true', ()=>{
+        expect(deleteProperty()).toEqual(console.log({ name : "David Rayn", sclass : "VI", rollno : 12 }))
+        expect(deleteProperty()).toEqual(console.log({ name : "David Rayn", sclass : "VI" }))
     })
 })

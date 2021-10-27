@@ -6,10 +6,10 @@
 // the user is then prompted to input a guess number. If the user input matches with guess number,
 //  the program will display a message "Good Work" otherwise display a message "Not matched".
 
- export function matchNumber(number){
+export function matchNumber(number){
   const max = 10, min = 1
-  const randonNumber = Math.floor(Math.random (max - min) + min);
-  return number === randonNumber ? 'Good Work' : 'Not matched';
+  const randomNumber = Math.floor(Math.random() * (max - min) + min);
+  return number === randomNumber ? 'Good Work' : 'Not matched';
 }
  // 2. Write a JavaScript program to calculate days left until next Christmas.
 export function getDayBeforeChristMast(){
@@ -43,6 +43,21 @@ export function extractAtIndex(...index){
     })
     return arrayExtractValue
 }
+
+ //11. Write a JavaScript program to delete the rollno property from the following object.
+ // Also print the object before or after deleting the property.
+export function deleteProperty(){
+    const student = {
+        name : "David Rayn",
+        sclass : "VI",
+        rollno : 12
+    };
+    console.log(student)
+    delete student.rollno
+    console.log(student)
+}
+
+
  export function additionNumber(a, b){
   return a+b;
 }
