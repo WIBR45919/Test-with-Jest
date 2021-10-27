@@ -1,6 +1,6 @@
 import {
     divisionNumber, matchNumber, getDayBeforeChristMast, multiplicationAndDivision, findString, extractAtIndex,
-    deleteProperty,filterArray
+    deleteProperty,filterArray,volumeCylinder
 } from "./index.js";
 
 
@@ -84,5 +84,13 @@ describe('program to delete the rollno property from the following object.Also p
     test('Print is true', ()=>{
         expect(deleteProperty()).toEqual(console.log({ name : "David Rayn", sclass : "VI", rollno : 12 }))
         expect(deleteProperty()).toEqual(console.log({ name : "David Rayn", sclass : "VI" }))
+    })
+})
+describe('program to get the volume of a Cylinder with four decimal places using object classes', ()=>{
+    test('Get with two positive and whole number',()=>{
+        expect(volumeCylinder(2,5).get()).toBe("62.8319")
+    })
+    test('Get with 0,0 likes parameters',()=>{
+        expect(volumeCylinder(0,0).get()).toBe(0)
     })
 })
