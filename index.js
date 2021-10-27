@@ -24,15 +24,7 @@ export function multiplicationAndDivision(a= 1,b= 1){
 export function findString(stringArray){
     if(stringArray.length === 0) return "Empty array"
     else if (stringArray.length === 1) return stringArray[0]
-    else {
-        const string = stringArray.reduce((prev, acc) => {
-            if(acc.length > prev.length){
-                return acc
-            }
-            return prev
-        })
-        return string
-    }
+    return stringArray.reduce((prev, acc)=>  acc.length > prev.length ? acc : prev)
 }
  //9. Write a JavaScript program to filter out the specified values from a specified array. Return the original array without the filtered values
 export function filterArray(tabValues, arrayFilterValues){
@@ -52,15 +44,10 @@ export function extractAtIndex(arrayExtractValue,...index){
 
  //11. Write a JavaScript program to delete the rollno property from the following object.
  // Also print the object before or after deleting the property.
-export function deleteProperty(){
-    const student = {
-        name : "David Rayn",
-        sclass : "VI",
-        rollno : 12
-    };
-    console.log(student)
-    delete student.rollno
-    console.log(student)
+export function deleteProperty(arrayOrigin, prop){
+    console.log(arrayOrigin)
+    delete arrayOrigin[prop]
+    console.log(arrayOrigin)
 }
 //12. Write a JavaScript program to get the volume of a Cylinder with four decimal places using object classes.
 export function volumeCylinder(rayon = 1, height= 1){
@@ -73,7 +60,9 @@ export function volumeCylinder(rayon = 1, height= 1){
 }
  //13. Write a JavaScript program to create a Clock.
 export function createClock(){
-
+    setInterval(()=>{
+        return `${ new Date().getHours() } : ${ new Date().getMinutes() } :${ new Date().getSeconds() }`
+    },1000)
 }
  export function additionNumber(a, b){
   return a+b;

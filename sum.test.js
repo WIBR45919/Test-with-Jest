@@ -1,6 +1,6 @@
 import {
     divisionNumber, matchNumber, getDayBeforeChristMast, multiplicationAndDivision, findString, extractAtIndex,
-    deleteProperty,filterArray,volumeCylinder
+    deleteProperty,filterArray,volumeCylinder,createClock
 } from "./index.js";
 
 
@@ -99,9 +99,13 @@ describe('program to extract out the values at the specified indexes from a spec
 
 })
 describe('program to delete the rollno property from the following object.Also print the object before or after deleting the property.', ()=>{
-    test('Print is true', ()=>{
-        expect(deleteProperty()).toEqual(console.log({ name : "David Rayn", sclass : "VI", rollno : 12 }))
-        expect(deleteProperty()).toEqual(console.log({ name : "David Rayn", sclass : "VI" }))
+    const student = { name : "David Rayn", sclass : "VI", rollno : 12 }
+    test('Property has been call', ()=>{
+        console.log = jest.fn()
+        deleteProperty(student, 'rollno')
+        expect(console.log).toHaveBeenCalledTimes(2)
+        expect(console.log).toHaveBeenNthCalledWith(1,student)
+        expect(console.log).toHaveBeenNthCalledWith(2,{ name : "David Rayn", sclass : "VI" })
     })
 })
 describe('program to get the volume of a Cylinder with four decimal places using object classes', ()=>{
@@ -111,4 +115,21 @@ describe('program to get the volume of a Cylinder with four decimal places using
     test('Get with 0,0 likes parameters',()=>{
         expect(volumeCylinder(0,0).get()).toBe(0)
     })
+})
+describe('', ()=>{
+    jest.useFakeTimers();
+    jest.spyOn(global, 'setInterval');
+
+    test('show time every 1000ms', () => {
+        createClock();
+        expect(setInterval).toHaveBeenCalledTimes(1);
+        expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+    });
+
+    test('mock the function', () => {
+        setInterval = jest.fn(()=> "16:12:40");
+        expect(createClock()).toMatch("16:12:40");
+    });
+
+
 })
