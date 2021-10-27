@@ -39,13 +39,15 @@ export function filterArray(tabValues, arrayFilterValues){
     return tabValues.filter(elt => !arrayFilterValues.includes(elt))
 }
  //10.Write a JavaScript program to extract out the values at the specified indexes from a specified array.
-export function extractAtIndex(...index){
-    const arrayExtractValue = ['Bonjour', 15, 17, 'Tonton', 'Je mange', 'Eat fast', 'I am here to learn more', 'as well as'];
-    const length = arrayExtractValue.length
-    index.forEach((elt) => {
-        if(elt < length) arrayExtractValue.splice(elt-1,1)
-    })
-    return arrayExtractValue
+export function extractAtIndex(arrayExtractValue,...index){
+    if (index.length === 1) return arrayExtractValue[index[0] - 1]
+    else {
+        const extractValues = []
+        index.forEach((elt) => {
+           extractValues.push(arrayExtractValue[elt-1])
+        })
+        return extractValues
+    }
 }
 
  //11. Write a JavaScript program to delete the rollno property from the following object.

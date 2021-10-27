@@ -82,11 +82,21 @@ describe('program to filter out the specified values from a specified array. Ret
         expect(filterArray(['I am here', 'Why you are not here', 'Go ahead', 'Shutting down'], ['Go ahead', 'Shutting down']))
             .toEqual(['I am here', 'Why you are not here'])
     })
+    test('if there is not the same values in twice array', ()=>{
+        expect(filterArray(['I am here', 'Why you are not here', 'Go ahead', 'Shutting down'], ['GoGo ahead', 'Shutting down fast']))
+            .toEqual(['I am here', 'Why you are not here', 'Go ahead', 'Shutting down'])
+    })
+
 })
 describe('program to extract out the values at the specified indexes from a specified array.', ()=>{
+    const arrayExtractValue = ['Bonjour', 15, 17, 'Tonton', 'Je mange', 'Eat fast', 'I am here to learn more', 'as well as'];
     test('Index exist in an array',()=>{
-        expect(extractAtIndex(1,4,5)).toEqual([15, 17,'Tonton', 'Eat fast', 'as well as'])
+        expect(extractAtIndex(arrayExtractValue,1,4,5)).toEqual(["Bonjour", "Tonton", "Je mange"])
     })
+    test('Index does not exist',()=>{
+        expect(extractAtIndex(arrayExtractValue,1)).toEqual('Bonjour')
+    })
+
 })
 describe('program to delete the rollno property from the following object.Also print the object before or after deleting the property.', ()=>{
     test('Print is true', ()=>{
