@@ -11,25 +11,30 @@ export function matchNumber(number){
   const randomNumber = Math.floor(Math.random() * (max - min) + min);
   return number === randomNumber ? 'Good Work' : 'Not matched';
 }
+
  // 2. Write a JavaScript program to calculate days left until next Christmas.
 export function getDayBeforeChristMast(){
   return Math.ceil((new Date(2021, 11, 25) - Date.now()) / (24*3600*1000));
 }
+
  // 3.Write a JavaScript program to calculate multiplication and division of two numbers (input from user).
 export function multiplicationAndDivision(a= 1,b= 1){
     if ((a === 0 & b === 0) || b === 0) return  0
     else return { addition: a+b, multiplication: a*b }
 }
+
  //4. Write a JavaScript program to find the longest string from a given array.
 export function findString(stringArray){
     if(stringArray.length === 0) return "Empty array"
     else if (stringArray.length === 1) return stringArray[0]
     return stringArray.reduce((prev, acc)=>  acc.length > prev.length ? acc : prev)
 }
+
  //9. Write a JavaScript program to filter out the specified values from a specified array. Return the original array without the filtered values
 export function filterArray(tabValues, arrayFilterValues){
     return tabValues.filter(elt => !arrayFilterValues.includes(elt))
 }
+
  //10.Write a JavaScript program to extract out the values at the specified indexes from a specified array.
 export function extractAtIndex(arrayExtractValue,...index){
     if (index.length === 1) return arrayExtractValue[index[0] - 1]
@@ -49,20 +54,40 @@ export function deleteProperty(arrayOrigin, prop){
     delete arrayOrigin[prop]
     console.log(arrayOrigin)
 }
+
 //12. Write a JavaScript program to get the volume of a Cylinder with four decimal places using object classes.
 export function volumeCylinder({radius = 1, height= 1}){
     if (radius === 0 || height === 0) return 0
     else return (2 * Math.PI * radius * height).toFixed(4)
 }
+
  //13. Write a JavaScript program to create a Clock.
 export function createClock(){
     setInterval(()=>{
         return `${ new Date().getHours() } : ${ new Date().getMinutes() } :${ new Date().getSeconds() }`
     },1000)
 }
+
+ //14. Write a JavaScript program to check if a string is lower case or not.
+export function checkIfLower(message){
+    return message === message.toLowerCase() ? 'This string is lower case' : 'This string is not lower case'
+}
+
+ //15. Write a function called add with two parameters which return a promise containing the result or the error message
+ // "Must provide two parameters" in case the user provided only no or only one parameter
+export function add(succ, err){
+    return new Promise((resolve, reject) => {
+        if((succ === undefined || err === undefined) || (succ === undefined && err === undefined))
+            reject('Error: Must provide two parameters')
+        else
+            resolve('Success: You provided two parameters')
+    })
+}
+
  export function additionNumber(a, b){
   return a+b;
 }
+
  export function multiplierNumber(a, b){
   return a*b;
 }

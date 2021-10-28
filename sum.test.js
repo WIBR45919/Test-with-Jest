@@ -1,6 +1,6 @@
 import {
     divisionNumber, matchNumber, getDayBeforeChristMast, multiplicationAndDivision, findString, extractAtIndex,
-    deleteProperty,filterArray,volumeCylinder,createClock
+    deleteProperty,filterArray,volumeCylinder,createClock,checkIfLower,add
 } from "./index.js";
 
 
@@ -116,7 +116,7 @@ describe('program to get the volume of a Cylinder with four decimal places using
         expect(volumeCylinder({radius: 0,height:0})).toBe(0)
     })
 })
-describe('', ()=>{
+describe('Write a JavaScript program to create a Clock.', ()=>{
     jest.useFakeTimers();
     jest.spyOn(global, 'setInterval');
 
@@ -125,11 +125,37 @@ describe('', ()=>{
         expect(setInterval).toHaveBeenCalledTimes(1);
         expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
     });
+})
+describe('Write a JavaScript program to check if a string is lower case or not.',  ()=> {
+    test('message is lower case',()=>{
+        expect(checkIfLower('bonjour')).toMatch('This string is lower case')
+    })
+    test('message is not in lower case',()=>{
+        expect(checkIfLower('Bonjour')).toMatch('This string is not lower case')
+        expect(checkIfLower('BonJour')).toMatch('This string is not lower case')
+        expect(checkIfLower('bonJour')).toMatch('This string is not lower case')
+        expect(checkIfLower('BONJOUR')).toMatch('This string is not lower case')
+    })
 
-    // test('mock the function', () => {
-    //     setInterval = jest.fn(()=> "16:12:40");
-    //     expect(createClock()).toMatch("16:12:40");
-    // });
-
+});
+describe('Write a function called add with two parameters which return a promise containing the result or the error message',()=>{
+    test('add is called without parameters',async ()=>{
+        try {
+            await add()
+        }catch (e) {
+            expect(e).toMatch('Error: Must provide two parameters')
+        }
+    })
+     test('add is called with one parameter',async ()=>{
+         try {
+             await add(4)
+         }catch (e) {
+             expect(e).toMatch('Error: Must provide two parameters')
+         }
+    })
+     test('add is called with two parameters',async ()=>{
+             const data = await add(3,2)
+             expect(data).toMatch('Success: You provided two parameters')
+     })
 
 })
