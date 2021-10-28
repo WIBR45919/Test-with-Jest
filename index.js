@@ -50,13 +50,9 @@ export function deleteProperty(arrayOrigin, prop){
     console.log(arrayOrigin)
 }
 //12. Write a JavaScript program to get the volume of a Cylinder with four decimal places using object classes.
-export function volumeCylinder(rayon = 1, height= 1){
-     return {
-        get: function (){
-            if (rayon === 0 || height === 0) return 0
-            else return (2 * Math.PI * rayon * height).toFixed(4)
-        }
-    }
+export function volumeCylinder({radius = 1, height= 1}){
+    if (radius === 0 || height === 0) return 0
+    else return (2 * Math.PI * radius * height).toFixed(4)
 }
  //13. Write a JavaScript program to create a Clock.
 export function createClock(){
